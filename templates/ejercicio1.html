@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 1</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='scratch.css') }}">
+</head>
+<body>
+    <h1>Calculo de compras</h1>
+    <form method="POST">
+        <label for="name">Ingresa tu nombre:</label>
+        <input type="text" id="name" name="name" required>
+        <br>
+        <label for="age">Ingresa tu edad:</label>
+        <input type="number" id="age" name="age" required>
+        <br>
+        <label for="tarros">Ingresa la cantidad de tarros de pintura a comprar:</label>
+        <input type="number" id="tarros" name="tarros" required>
+        <br>
+        <button type="submit">Calcular</button>
+    </form>
+
+    {% if name %}
+    <h2>Resumen de la Compra</h2>
+    <p>Nombre del cliente: {{ name }}</p>
+    <p>Total sin descuento: ${{ total_sin_descuento }}</p>
+    <p>Monto del descuento: ${{ monto_descuento }}</p>
+    <p>Total a pagar con descuento: ${{ total_con_descuento }}</p>
+    {% endif %}
+
+    <a href="{{ url_for('index') }}">Volver</a>
+</body>
+</html>
